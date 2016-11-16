@@ -41,7 +41,7 @@ public class Food
 	  else
 		  return false;
   }
-
+  
   public void update( GL gl , Fish f)
   {
     angle += 1;

@@ -55,4 +55,9 @@ public class Vivarium
     	fish.draw( gl );
     }
   }
+  
+  public void addFood(){
+		food.eaten = false;
+	}
 }
+

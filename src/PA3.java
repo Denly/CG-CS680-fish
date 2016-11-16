@@ -1,4 +1,9 @@
-
+/*
+ * @author: Huai Chun Shih
+ * @email: shih0623@bu.edu
+ * press "f" to put food
+ * 11/15 2016
+ */
 
 import javax.swing.*;
 
@@ -197,7 +202,8 @@ private GLUT glut;
                    break;
         case 'F' :
         case 'f' : 
-                   System.out.println("food"); 
+                   System.out.println("food");
+                   vivarium.addFood();
                    break;
         default :
           break;
