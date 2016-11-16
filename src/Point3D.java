@@ -75,21 +75,34 @@ public class Point3D {
 	  float len = this.dis(); 
 	  return new Point3D(this.x/len, this.y/len, this.z/len);
   }
+  public float dot(Point3D p){
+	  return this.x * p.x + this.y * p.y + this.z * p.z;
+  }
   
   public float angle(Point3D p){
 	  Point3D p_n = p.normal();
 	  Point3D this_n = this.normal();
-	  float r = this_n.x * p_n.x + this_n.y * p_n.y + this_n.z * p_n.z;
-	  return (float)Math.toDegrees(Math.acos((double)r)); 
+	  
+	  float angle = (float)Math.toDegrees( Math.acos(this_n.dot(p_n)) );
+	  System.out.println(angle);
+	  if(this.cross_n(p_n).dot(this.cross(p)) < 0){
+		  angle = -angle;
+	  }
+	  
+	  return angle; 
   }
   
   public Point3D cross(Point3D p){
-	  float x = this.y * p.z;
-	  float y = this.z * p.x;
-	  float z = this.x * p.y;
+	  float x = this.y * p.z - this.z * p.y;
+	  float y = this.z * p.x - this.x * p.z;
+	  float z = this.x * p.y - this.y * p.x;
 	  Point3D r = new Point3D(x, y, z);
 	  return r;
   } 
+  
+  public Point3D cross_n(Point3D p){
+	  return cross(p).normal();
+  }
   
   public float dis(){
 	return dis(new Point3D(0, 0, 0));  
