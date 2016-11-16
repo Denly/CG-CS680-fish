@@ -7,17 +7,13 @@ import java.util.*;
 public class Vivarium
 {
   private Tank tank;
-  //private Fish fishs[];
+  private int NUM_OF_FISH = 5;
   private ArrayList<Fish> fishs;
   public Vivarium()
   {
     tank = new Tank( 4.0f, 4.0f, 4.0f );
-    Fish f1 = new Fish();
-    Fish f2 = new Fish();
-    //fishs = {f1};
     fishs = new ArrayList<Fish>();
-    //
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < NUM_OF_FISH; i++){
     	fishs.add(new Fish());
     }
     

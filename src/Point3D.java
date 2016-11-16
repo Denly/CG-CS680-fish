@@ -72,12 +72,7 @@ public class Point3D {
   }
   
   public Point3D normal(){
-	  double x = Math.pow(this.x, 2);
-	  double y = Math.pow(this.y, 2);
-	  double z = Math.pow(this.z, 2);
-	  
-	  float len = (float)Math.sqrt( x+y+z );
-	  
+	  float len = this.dis(); 
 	  return new Point3D(this.x/len, this.y/len, this.z/len);
   }
   
@@ -95,6 +90,19 @@ public class Point3D {
 	  Point3D r = new Point3D(x, y, z);
 	  return r;
   } 
+  
+  public float dis(){
+	return dis(new Point3D(0, 0, 0));  
+  }
+  
+  public float dis(Point3D p){
+	  double x = Math.pow(this.x, 2);
+	  double y = Math.pow(this.y, 2);
+	  double z = Math.pow(this.z, 2);
+	  
+	  float len = (float)Math.sqrt( x+y+z );
+	  return len;
+  }
   /**
    * Returns the String representation of this object.
    * 
