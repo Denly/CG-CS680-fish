@@ -19,7 +19,7 @@ public class Fish
   private Point3D dir;
   private Point3D front = new Point3D(0, 0, -1);
   private int BOUND = 2;
-  private float SPEED = 0.01f;
+  private float SPEED = 0.005f;
   
 
   public Fish( )
@@ -41,7 +41,7 @@ public class Fish
     gl.glNewList( body, GL2.GL_COMPILE );
     	gl.glPushMatrix();
     		gl.glTranslated(0, 0, 0.2*1.3f);		
-    		gl.glScalef(0.3f, 0.5f, 1.3f);	
+    		gl.glScalef(0.3f, 0.9f, 1.3f);	
 	    	glut.glutSolidSphere(0.2, 36, 18); 
 	    gl.glPopMatrix();
     gl.glEndList();
@@ -153,7 +153,7 @@ public class Fish
     gl.glPushAttrib( GL2.GL_CURRENT_BIT );
     	gl.glTranslated( (float)loc.x(), (float)loc.y(), (float)loc.z());
 		gl.glRotatef( angle, axis.x, axis.y, axis.z );
-	    gl.glColor3f( 0.6f, 0.6f, 0.6f); // Orange
+	    gl.glColor3f( 0.6f, 0.6f, 0.9f); // Orange
 	    
 	        
 		gl.glPushMatrix();
