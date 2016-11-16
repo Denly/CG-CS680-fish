@@ -80,6 +80,21 @@ public class Point3D {
 	  
 	  return new Point3D(this.x/len, this.y/len, this.z/len);
   }
+  
+  public float angle(Point3D p){
+	  Point3D p_n = p.normal();
+	  Point3D this_n = this.normal();
+	  float r = this_n.x * p_n.x + this_n.y * p_n.y + this_n.z * p_n.z;
+	  return (float)Math.toDegrees(Math.acos((double)r)); 
+  }
+  
+  public Point3D cross(Point3D p){
+	  float x = this.y * p.z;
+	  float y = this.z * p.x;
+	  float z = this.x * p.y;
+	  Point3D r = new Point3D(x, y, z);
+	  return r;
+  } 
   /**
    * Returns the String representation of this object.
    * 

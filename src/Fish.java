@@ -12,12 +12,13 @@ public class Fish
   private int tail1;
   private int tail2;
   private float angle;
+  private Point3D axis;
   private float angleTail;
   private float directionTail;
   private Point3D loc;
   private Point3D dir;
   private int BOUND = 2;
-  private float SPEED = 0.1f;
+  private float SPEED = 0.01f;
 
   public Fish( )
   {
@@ -84,7 +85,12 @@ public class Fish
   }
   
   private Point3D next_dir(){
-	  return Point3D.randomP(-SPEED, SPEED);
+	  Point3D r = Point3D.randomP(-SPEED, SPEED);
+	  Point3D init = new Point3D(0, 0, 1);
+	  angle = r.angle(init);
+	  axis = r.cross(init);
+	  
+	  return r;
   }
   
   private Point3D next_dir(int wall){
@@ -128,7 +134,7 @@ public class Fish
     gl.glPushMatrix();
     gl.glPushAttrib( GL2.GL_CURRENT_BIT );
     	gl.glTranslated( (float)loc.x(), (float)loc.y(), (float)loc.z());
-		//gl.glRotatef( angle, 0.0f, 1.0f, 0.0f );
+		gl.glRotatef( angle, axis.x, axis.y, axis.z );
 	    gl.glColor3f( 0.6f, 0.6f, 0.6f); // Orange
 	    
 	        

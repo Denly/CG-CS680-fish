@@ -1,3 +1,9 @@
-System.out.println("hiii");
+/*System.out.println("hiii");
 Cannot use this in a static contextPoint3D x = new Point3D(1,2,-3).normal();
-System.out.println(x.toString());
+System.out.println(x.toString());*/
+
+Point3D x = new Point3D(1,0,0);
+Point3D y = new Point3D(0,-1,0);
+System.out.println(Math.toDegrees(x.angle(y)));
+
+System.out.println(x.cross(y).toString());
