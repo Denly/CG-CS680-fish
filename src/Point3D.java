@@ -84,7 +84,6 @@ public class Point3D {
 	  Point3D this_n = this.normal();
 	  
 	  float angle = (float)Math.toDegrees( Math.acos(this_n.dot(p_n)) );
-	  System.out.println(angle);
 	  if(this.cross_n(p_n).dot(this.cross(p)) < 0){
 		  angle = -angle;
 	  }

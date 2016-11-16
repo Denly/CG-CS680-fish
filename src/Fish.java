@@ -17,8 +17,10 @@ public class Fish
   private float directionTail;
   public Point3D loc;
   private Point3D dir;
+  private Point3D front = new Point3D(0, 0, -1);
   private int BOUND = 2;
-  private float SPEED = 0.001f;
+  private float SPEED = 0.01f;
+  
 
   public Fish( )
   {
@@ -82,10 +84,10 @@ public class Fish
 		dir = next_dir(hit);
 	}
 	
-	/*if(collision(f, 0.5f)){
+	if(collision(f, 0.5f)){
 		System.out.println("collision");
 		next_dir();
-	}*/
+	}
 
   }
   
@@ -99,9 +101,8 @@ public class Fish
   
   private Point3D next_dir(){
 	  Point3D r = Point3D.randomP(-SPEED, SPEED);
-	  Point3D init = new Point3D(0, 0, -1);
-	  angle = r.angle(init);
-	  axis = r.cross_n(init);
+	  angle = r.angle(front);
+	  axis = r.cross_n(front);
 	  
 	  return r;
   }
@@ -121,8 +122,8 @@ public class Fish
 	  if(wall == -3)
 		  new_dir.z = SPEED;
 	  
-	  angle = new_dir.angle(dir);
-	  axis = new_dir.cross_n(dir);
+	  angle = new_dir.angle(front);
+	  axis = new_dir.cross_n(front);
 	  
 	  return new_dir;
   }

@@ -7,8 +7,9 @@ import java.util.*;
 public class Vivarium
 {
   private Tank tank;
-  private int NUM_OF_FISH = 5;
   private ArrayList<Fish> fishs;
+  private int NUM_OF_FISH = 10;
+  
   public Vivarium()
   {
     tank = new Tank( 4.0f, 4.0f, 4.0f );
