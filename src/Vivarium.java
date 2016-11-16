@@ -9,7 +9,7 @@ public class Vivarium
   private Tank tank;
   private ArrayList<Fish> fishs;
   private Food food;
-  private int NUM_OF_FISH = 10;
+  private int NUM_OF_FISH = 6;
   private float FOOD_SIZE = 0.2f;
   
   public Vivarium()
@@ -40,7 +40,8 @@ public class Vivarium
     	for(Fish f : fishs){
     		if(f != fish)
     			f.update( gl , fish);
-        	food.update( gl, f );
+    		if(food.eaten == false)
+    			food.update( gl, f );
         }
     }
   }
@@ -48,7 +49,8 @@ public class Vivarium
   public void draw( GL2 gl )
   {
     tank.draw( gl );
-    food.draw( gl );
+    if(food.eaten == false)
+    	food.draw( gl );
     for(Fish fish : fishs){
     	fish.draw( gl );
     }
