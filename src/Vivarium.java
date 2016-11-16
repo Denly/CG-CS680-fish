@@ -38,7 +38,8 @@ public class Vivarium
     
     for(Fish fish : fishs){
     	for(Fish f : fishs){
-        	f.update( gl , fish);
+    		if(f != fish)
+    			f.update( gl , fish);
         	food.update( gl, f );
         }
     }

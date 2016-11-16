@@ -108,10 +108,12 @@ public class Point3D {
   }
   
   public float dis(Point3D p){
-	  double x = Math.pow(this.x, 2);
-	  double y = Math.pow(this.y, 2);
-	  double z = Math.pow(this.z, 2);
-	  
+	  double x = this.x - p.x;
+	  double y = this.y - p.y;
+	  double z = this.z - p.z;
+	  x = Math.pow(x, 2);
+	  y = Math.pow(y, 2);
+	  z = Math.pow(z, 2);
 	  float len = (float)Math.sqrt( x+y+z );
 	  return len;
   }

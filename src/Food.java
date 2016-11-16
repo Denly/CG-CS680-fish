@@ -36,6 +36,7 @@ public class Food
   
   private boolean collision(Fish f, float r){
 	  float dis = loc.dis(f.loc);
+	  
 	  if(dis < r)
 		  return true;
 	  else
@@ -44,10 +45,12 @@ public class Food
 
   public void update( GL gl , Fish f)
   {
-    angle += 5 % 360;
-    if(collision(f, scale)){
+    angle += 5;
+    if(collision(f, 1f)){
     	eaten = true;
     	System.out.println("Food: "+ eaten);
+    }else{
+    	System.out.println("Not eaten~~~: ");
     }
     	
   }

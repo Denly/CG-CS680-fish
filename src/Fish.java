@@ -19,7 +19,7 @@ public class Fish
   private Point3D dir;
   private Point3D front = new Point3D(0, 0, -1);
   private int BOUND = 2;
-  private float SPEED = 0.005f;
+  private float SPEED = 0.001f;
   
 
   public Fish( )

@@ -2,8 +2,12 @@
 Cannot use this in a static contextPoint3D x = new Point3D(1,2,-3).normal();
 System.out.println(x.toString());*/
 
-Point3D x = new Point3D(1,-1,-1);
-Point3D y = new Point3D(1,1,1);
-System.out.println("deg: "+x.angle(y));
+Point3D x = new Point3D(1,0,0);
+Point3D y = new Point3D(2,0,0);
+//System.out.println("deg: "+x.angle(y));
 
-System.out.println("axis: "+x.cross(y).toString());
+//System.out.println("axis: "+x.cross(y).toString());
+
+System.out.println("x: "+x.toString());
+System.out.println("y: "+y.toString());
+System.out.println("distance: "+x.dis(y));
