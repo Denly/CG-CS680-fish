@@ -215,10 +215,15 @@ private GLUT glut;
                    System.out.println("change fish type");
                    vivarium.changeFishType(10, 0);
                    break;
-        case 'X' :
-        case 'x' : 
+        case 'A' :
+        case 'a' : 
                    System.out.println("change fish type");
-                   vivarium.changeFishType(3, 1);
+                   vivarium.changeFishType(1, 1);
+                   break;
+        case 'S' :
+        case 's' : 
+                   System.out.println("change fish type");
+                   vivarium.changeFishType(1, 0);
                    break;
         default :
           break;

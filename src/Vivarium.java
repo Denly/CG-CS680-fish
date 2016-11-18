@@ -66,8 +66,10 @@ public class Vivarium
 	  for(Fish fish : fishs){
 		  if(count == n)
 		  break;
-	  	fish.changeType(type);
-	  	count ++;
+		  if(fish.TYPE_OF_FISH != type){
+			  fish.changeType(type);
+	  			count ++;
+		  }
 	  }
 	}
 }
