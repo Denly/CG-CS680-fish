@@ -130,8 +130,8 @@ public class Fish
 	  angle = dir.angle(front);
 	  axis = dir.cross_n(front);
   }
-  public void changeType(){
-	  TYPE_OF_FISH = 0;
+  public void changeType(int n){
+	  TYPE_OF_FISH = n;
   }
   
   private Point3D next_dir(int wall){
