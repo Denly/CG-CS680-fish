@@ -205,6 +205,11 @@ private GLUT glut;
                    System.out.println("food");
                    vivarium.addFood();
                    break;
+        case 'C' :
+        case 'c' : 
+                   System.out.println("change fish type");
+                   vivarium.changeFishType(1);
+                   break;
         default :
           break;
     }

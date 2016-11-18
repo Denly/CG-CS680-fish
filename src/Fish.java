@@ -20,7 +20,7 @@ public class Fish
   private Point3D front = new Point3D(0, 0, -1);
   private int BOUND = 2;
   private float SPEED = 0.005f;
-  
+  public int TYPE_OF_FISH;
 
   public Fish( )
   {
@@ -29,6 +29,7 @@ public class Fish
     directionTail = 1;
     loc = Point3D.randomP(-2, 2);
     dir = next_dir();
+    TYPE_OF_FISH = Point3D.randomWithRangeInt(0, 1);
   }
 
   public void init( GL2 gl )
@@ -90,6 +91,10 @@ public class Fish
 	//chase food
 	if(!food.eaten)
 		chase(food.loc);
+	//chase fish
+	if(TYPE_OF_FISH == 1){
+		chase(f.loc);
+	}
 	//rotate to face right direction
 	rotate_by_dir();
 	//update location by velocity dir
@@ -124,6 +129,9 @@ public class Fish
   private void rotate_by_dir(){
 	  angle = dir.angle(front);
 	  axis = dir.cross_n(front);
+  }
+  public void changeType(){
+	  TYPE_OF_FISH = 0;
   }
   
   private Point3D next_dir(int wall){
@@ -169,7 +177,10 @@ public class Fish
     gl.glPushAttrib( GL2.GL_CURRENT_BIT );
     	gl.glTranslated( (float)loc.x(), (float)loc.y(), (float)loc.z());
 		gl.glRotatef( angle, axis.x, axis.y, axis.z );
-	    gl.glColor3f( 0.6f, 0.6f, 0.9f); // Orange
+		if(TYPE_OF_FISH == 0)
+			gl.glColor3f( 0.6f, 0.6f, 0.9f); // Orange
+		else if(TYPE_OF_FISH == 1) 
+			gl.glColor3f( 0.8f, 0.4f, 0.4f); // Orange
 	    
 	        
 		gl.glPushMatrix();
@@ -194,3 +205,4 @@ public class Fish
     gl.glPopMatrix();
   }
 }
+

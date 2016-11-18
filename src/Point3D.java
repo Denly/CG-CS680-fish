@@ -61,6 +61,12 @@ public class Point3D {
 	    return new Point3D(x, y, z);
   }
 
+  static public int randomWithRangeInt(int min, int max)
+  {
+     int range = (max - min) + 1;     
+     return (int)(Math.random() * range) + min;
+  }
+  
   static private float randomWithRange(float min, float max){
 	 float range = Math.abs(max - min);     
      return (float)(Math.random() * range) + (min <= max ? min : max);

@@ -60,5 +60,11 @@ public class Vivarium
   public void addFood(){
 	  	food.newfood();
 	}
+  
+  public void changeFishType(int n){
+	  for(Fish fish : fishs){
+	  	fish.changeType();
+	  }
+	}
 }
 
