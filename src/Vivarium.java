@@ -37,11 +37,12 @@ public class Vivarium
     tank.update( gl );
     
     for(Fish fish : fishs){
+    	if(food.eaten == false){
+			food.update( gl, fish );
+		}
     	for(Fish f : fishs){
     		if(f != fish)
-    			f.update( gl , fish);
-    		if(food.eaten == false)
-    			food.update( gl, f );
+    			f.update( gl , fish, food);
         }
     }
   }

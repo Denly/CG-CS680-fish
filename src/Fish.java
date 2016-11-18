@@ -70,7 +70,7 @@ public class Fish
     
   }
 
-  public void update( GL2 gl , Fish f)
+  public void update( GL2 gl , Fish f, Food food)
   {
     //angle += 5;
     
@@ -78,7 +78,7 @@ public class Fish
 	  if(angleTail>20 || angleTail<-20)
 		  directionTail=-directionTail;
 	  
-	loc = loc.plus(dir);
+	
 	int hit = hitWall(loc);
 	if(hit != 0){
 		dir = next_dir(hit);
@@ -88,7 +88,10 @@ public class Fish
 		System.out.println("collision");
 		next_dir();
 	}
-
+	if(!food.eaten)
+		chase(food.loc);
+	rotate_by_dir();
+	loc = loc.plus(dir);
   }
   
   private boolean collision(Fish f, float r){
@@ -99,12 +102,23 @@ public class Fish
 		  return false;
   }
   
+  private Point3D chase(Point3D target){
+	  Point3D force = loc.minus(target).normal().multiply(SPEED*0.1f);
+	  dir = dir.minus(force);
+	  return dir;
+  }
+  
   private Point3D next_dir(){
 	  Point3D r = Point3D.randomP(-SPEED, SPEED);
-	  angle = r.angle(front);
-	  axis = r.cross_n(front);
+	  //angle = r.angle(front);
+	  //axis = r.cross_n(front);
 	  
 	  return r;
+  }
+  
+  private void rotate_by_dir(){
+	  angle = dir.angle(front);
+	  axis = dir.cross_n(front);
   }
   
   private Point3D next_dir(int wall){
@@ -122,8 +136,6 @@ public class Fish
 	  if(wall == -3)
 		  new_dir.z = SPEED;
 	  
-	  angle = new_dir.angle(front);
-	  axis = new_dir.cross_n(front);
 	  
 	  return new_dir;
   }

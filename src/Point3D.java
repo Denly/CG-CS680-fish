@@ -71,6 +71,16 @@ public class Point3D {
 	    return r;
   }
   
+  public Point3D minus(Point3D p) {
+	  Point3D r = new Point3D(this.x - p.x(), this.y - p.y(), this.z - p.z());
+	    return r;
+  }
+  
+  public Point3D multiply(float v) {
+	  Point3D r = new Point3D(this.x * v, this.y * v, this.z * v);
+	    return r;
+  }
+  
   public Point3D normal(){
 	  float len = this.dis(); 
 	  return new Point3D(this.x/len, this.y/len, this.z/len);
