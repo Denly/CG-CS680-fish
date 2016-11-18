@@ -13,13 +13,14 @@ public class Food
   private float angle;
   public boolean eaten;
   public Point3D loc;
-
+  private int BOUND = 2;
+  
   public Food( float scale_)
   {
     scale = scale_;
     angle = 0;
     eaten = false;
-    loc = new Point3D(0,0,0);
+    loc = Point3D.randomP(-BOUND, BOUND);
   }
 
   public void init( GL2 gl )
@@ -44,7 +45,7 @@ public class Food
   
   public void update( GL gl , Fish f)
   {
-    angle += 1;
+    angle += 0.05;
     if(collision(f, 1f)){
     	eaten = true;
     	System.out.println("Food: "+ eaten);
@@ -54,10 +55,16 @@ public class Food
     	
   }
 
+  public void newfood(){
+	eaten = false;
+	loc = Point3D.randomP(-BOUND, BOUND);  
+  }
+  
   public void draw( GL2 gl )
   {
     gl.glPushMatrix();
     gl.glPushAttrib( GL2.GL_CURRENT_BIT );
+    gl.glTranslated( loc.x, loc.y, loc.z);
     gl.glRotatef( angle, 0.0f, 1.0f, 0.0f );
     gl.glColor3f( 0.85f, 0.55f, 0.20f); // Orange
     gl.glCallList( teapot_object );

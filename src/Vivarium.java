@@ -57,7 +57,7 @@ public class Vivarium
   }
   
   public void addFood(){
-		food.eaten = false;
+	  	food.newfood();
 	}
 }
 
