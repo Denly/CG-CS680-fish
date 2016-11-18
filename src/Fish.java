@@ -19,7 +19,7 @@ public class Fish
   private Point3D dir;
   private Point3D front = new Point3D(0, 0, -1);
   private int BOUND = 2;
-  private float SPEED = 0.002f;
+  private float SPEED = 0.005f;
   
 
   public Fish( )
@@ -83,9 +83,9 @@ public class Fish
 		dir = next_dir(hit);
 	}
 	//collision
-	if(collision(f, 0.5f)){
+	if(collision(f, 1f)){
 		System.out.println("collision");
-		next_dir();
+		avoid(f.loc);
 	}
 	//chase food
 	if(!food.eaten)
@@ -107,6 +107,12 @@ public class Fish
   private Point3D chase(Point3D target){
 	  Point3D force = loc.minus(target).normal().multiply(SPEED*0.1f);
 	  dir = dir.minus(force);
+	  return dir;
+  }
+  
+  private Point3D avoid(Point3D target){
+	  Point3D force = loc.minus(target).normal().multiply(SPEED*0.1f);
+	  dir = dir.plus(force);
 	  return dir;
   }
   
