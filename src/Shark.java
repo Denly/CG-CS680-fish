@@ -6,7 +6,7 @@ import com.jogamp.opengl.util.gl2.GLUT;
 
 import java.util.*;
 
-public class Fish
+public class Shark
 {
   private int body;
   private int tail1;
@@ -23,7 +23,7 @@ public class Fish
   private float SPEED = 0.005f;
   public int TYPE_OF_FISH;
 
-  public Fish( )
+  public Shark( )
   {
     angle = 0;
     angleTail = 0;
@@ -81,7 +81,7 @@ public class Fish
     
   }
 
-  public void update( GL2 gl , Fish f, Food food)
+  public void update( GL2 gl , Shark f, Food food)
   {
     //tail anime
     angleTail += 0.75*directionTail;
@@ -111,7 +111,7 @@ public class Fish
 	loc = loc.plus(dir);
   }
   
-  private boolean collision(Fish f, float r){
+  private boolean collision(Shark f, float r){
 	  float dis = loc.dis(f.loc);
 	  boolean hit = false;
 	  if(dis < r)

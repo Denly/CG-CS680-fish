@@ -9,7 +9,7 @@ public class Vivarium
   private Tank tank;
   private ArrayList<Fish> fishs;
   private Food food;
-  private int NUM_OF_FISH = 6;
+  private int NUM_OF_FISH = 9;
   private float FOOD_SIZE = 0.2f;
   
   public Vivarium()
